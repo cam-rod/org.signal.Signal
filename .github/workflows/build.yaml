@@ -33,7 +33,7 @@ jobs:
         run: sudo flatpak install --noninteractive ./repo "$SIGNAL_FLATPAK"
 
       - name: Generate single-file bundle
-        run: sudo flatpak build-bundle ./repo "$SIGNAL_FLATPAK.flatpak" "$SIGNAL_FLATPAK" && sudo chmod 777 "./$SIGNAL_FLATPAK.flatpak"
+        run: sudo flatpak build-bundle ./repo "$SIGNAL_FLATPAK.flatpak" "$SIGNAL_FLATPAK" beta && sudo chmod 777 "./$SIGNAL_FLATPAK.flatpak"
       - name: Upload bundle as artifact
         uses: actions/upload-artifact@v3
         env:
