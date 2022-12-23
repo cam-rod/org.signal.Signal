@@ -1,14 +1,14 @@
-app-id: org.signal.Signal_Beta
+app-id: org.signal.Signal
 base: org.electronjs.Electron2.BaseApp
 base-version: '22.08'
 runtime: org.freedesktop.Platform
 runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
+default-branch: stable
 command: signal-desktop-beta
 separate-locales: false
 rename-desktop-file: signal-desktop-beta.desktop
 rename-icon: signal-desktop-beta
-tags: [beta]
 finish-args:
   # X11 performance
   - --share=ipc
@@ -81,4 +81,4 @@ modules:
       - type: file
         path: signal-desktop-beta.sh
       - type: file
-        path: org.signal.Signal_Beta.metainfo.xml
+        path: org.signal.Signal.metainfo.xml

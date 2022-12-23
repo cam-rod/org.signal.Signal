@@ -16,8 +16,8 @@ Go to the [build action](https://github.com/cam-rod/org.signal.Signal_Beta/actio
 
 ```bash
 unzip signal-desktop-beta-v<version_number>.zip && cd signal-desktop-beta-v<version_number>/
-chmod +x org.signal.Signal_Beta.flatpak
-flatpak install ./org.signal.Signal_Beta.flatpak
+chmod +x org.signal.Signal.flatpak
+flatpak install ./org.signal.Signal.flatpak
 ```
 
 If the artifact is not available, you can build from source with the following section.
@@ -29,19 +29,19 @@ git clone git@github.com:cam-rod/org.signal.Signal_Beta.git
 cd org.signal.Signal_Beta/
 
 mkdir builddir
-flatpak-builder --install [--system/--user] --install-deps-from=flathub --force-clean builddir org.signal.Signal_Beta.yaml
+flatpak-builder --install [--system/--user] --install-deps-from=flathub --force-clean --default-branch=beta builddir org.signal.Signal.yaml
 ```
 
 ## Building
 
-Dependencies are listed in the [manifest file](./org.signal.Signal_Beta.yaml). Also required is [flatpak-builder](https://github.com/flatpak/flatpak-builder).
+Dependencies are listed in the [manifest file](./org.signal.Signal.yaml). Also required is [flatpak-builder](https://github.com/flatpak/flatpak-builder).
 
 ```bash
 git clone git@github.com:cam-rod/org.signal.Signal_Beta.git
 cd org.signal.Signal_Beta/
 
 mkdir builddir
-flatpak-builder --force-clean --install-deps-from=flathub builddir org.signal.Signal_Beta.yaml
+flatpak-builder --force-clean --install-deps-from=flathub --default-branch=beta builddir org.signal.Signal.yaml
 ```
 
 ## Options
@@ -82,4 +82,4 @@ $ flatpak override --user --env=SIGNAL_DISABLE_GPU_SANDBOX=1 org.signal.Signal
 
 ## Issue reporting
 
-Please only report issues in this repo that are specific to the beta version of the flatpak ([view the differences here](https://github.com/flathub/org.signal.Signal/compare/master...cam-rod:org.signal.Signal_Beta:beta)). All other flatpak-specific issues should be reported to the [flatpak repo](https://github.com/flathub/org.signal.Signal), and issues with Signal Beta itself should be reported to [the upstream repo](https://github.com/signalapp/Signal-Desktop).
+Please only report issues in this repo that are specific to the beta version of the flatpak ([view the differences here](https://github.com/flathub/org.signal.Signal/compare/master..cam-rod:org.signal.Signal_Beta:beta)). All other flatpak-specific issues should be reported to the [flatpak repo](https://github.com/flathub/org.signal.Signal), and issues with Signal Beta itself should be reported to [the upstream repo](https://github.com/signalapp/Signal-Desktop).

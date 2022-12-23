@@ -1,7 +1,7 @@
 name: Build flatpak
 run-name: Building ${{ github.ref }} from ${{ github.actor }}
 env:
-  SIGNAL_FLATPAK: org.signal.Signal_Beta
+  SIGNAL_FLATPAK: org.signal.Signal
 
 on:
   pull_request:
