@@ -1,7 +1,7 @@
 name: Build flatpak
 run-name: Building ${{ github.ref }} from ${{ github.actor }}
 env:
-  SIGNAL_FLATPAK: org.signal.Signal_Beta
+  SIGNAL_FLATPAK: org.signal.Signal
 
 on:
   pull_request:
@@ -28,12 +28,12 @@ jobs:
       - name: Save app version
         run: SIGNAL_V=$(perl -ne '/(?<=signal\-desktop\-beta\_)([a-zA-Z0-9_\-.]*?)(?=_amd64)/ && print "$1"' < "$SIGNAL_FLATPAK.yaml") && echo "SIGNAL_VERSION=$SIGNAL_V" >> "$GITHUB_ENV"
       - name: Build the image
-        run: sudo flatpak-builder --install-deps-from=flathub --repo=repo builddir "$SIGNAL_FLATPAK.yaml"
+        run: sudo flatpak-builder --install-deps-from=flathub --repo=repo --default-branch=beta builddir "$SIGNAL_FLATPAK.yaml"
       - name: Install the image
-        run: sudo flatpak install --noninteractive ./repo "$SIGNAL_FLATPAK"
+        run: sudo flatpak install --noninteractive ./repo "$SIGNAL_FLATPAK"//beta
 
       - name: Generate single-file bundle
-        run: sudo flatpak build-bundle ./repo "$SIGNAL_FLATPAK.flatpak" "$SIGNAL_FLATPAK" && sudo chmod 777 "./$SIGNAL_FLATPAK.flatpak"
+        run: sudo flatpak build-bundle ./repo "$SIGNAL_FLATPAK.flatpak" "$SIGNAL_FLATPAK" beta && sudo chmod 777 "./$SIGNAL_FLATPAK.flatpak"
       - name: Upload bundle as artifact
         uses: actions/upload-artifact@v3
         env:
