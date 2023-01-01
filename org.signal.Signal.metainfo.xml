@@ -54,5 +54,5 @@
   <provides>
     <id>org.signal.Signal</id>
   </provides>
-  <update_contact>rod.cam2014+dev@gmail.com</update_contact>
+  <update_contact>dev@camrod.me</update_contact>
 </component>
