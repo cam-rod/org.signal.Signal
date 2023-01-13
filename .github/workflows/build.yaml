@@ -17,7 +17,7 @@ jobs:
     if: ${{ always() }} 
     steps:
       - name: Setup flatpak build env
-        run: sudo apt-get -y upgrade && sudo apt-get -y install wget gnupg2 flatpak flatpak-builder
+        run: sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y install wget gnupg2 flatpak flatpak-builder
       - name: Add Flathub repo
         run: wget https://flathub.org/repo/flathub.gpg && sudo flatpak remote-add --if-not-exists --gpg-import=flathub.gpg flathub https://dl.flathub.org/repo/flathub.flatpakrepo
       - name: Clone the PR
